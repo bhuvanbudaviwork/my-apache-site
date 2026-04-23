@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-apache
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-apache
+  template:
+    metadata:
+      labels:
+        app: my-apache
+    spec:
+      containers:
+      - name: apache-container
+        image: bhuvanbyte/my-apache-site:1.1
+        ports:
+        - containerPort: 80
